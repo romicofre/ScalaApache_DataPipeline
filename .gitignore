@@ -1,2 +1,37 @@
 *.class
 *.log
+*.iml
+*.ipr
+*.iws
+.idea
+
+.cache/
+.history/
+.lib/
+.scala_dependencies
+.worksheet
+libexec/
+logs/
+lib_managed/
+src_managed/
+out
+bin/
+build/
+dist/*
+target/
+project/*-shim.sbt
+project/project/
+project/target/
+project/boot/
+project/plugins/project/
+
+# bloop and metals
+.bloop
+.bsp
+.metals
+
+# scala 3
+.tasty
+
+# mac
+.DS_Store
