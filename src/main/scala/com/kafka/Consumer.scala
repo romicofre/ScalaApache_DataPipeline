@@ -33,17 +33,20 @@ object Consumer extends App{
     properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId)
     properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
 
+    // Create consumer
+    val kafkaConsumer = new KafkaConsumer[String, String](properties)
 
+    // Suscribe consumer
+    kafkaConsumer.subscribe(util.Collections.singletonList(topic))
 
-    //    val kafkaConsumer = new KafkaConsumer[String, String](properties)
-    //    kafkaConsumer.subscribe("firstTopic", "secondTopic")
-    //
-    //    while (true) {
-    //      val results = kafkaConsumer.poll(2000).asScala
-    //      for ((topic, data) <- results) {
-    //        // Do stuff
-    //      }
-    //    }
+    // Poll data
+    while(true){
+        val records=kafkaConsumer.poll(Duration.ofMillis(5000))
+        for (record<-records.asScala){
+            println(record)
+            println(record.value)
+        }
+    }
 
 
 
