@@ -27,3 +27,5 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.3"
 )
+
+libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.8.0-alpha2"
